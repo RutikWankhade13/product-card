@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Inc/Dec </title>
+</head>
+<style>
+    body {
+        background-color: rgb(243, 238, 234);
+    }
+
+    .product-container {
+        background-color: rgb(255, 255, 255);
+        width: 280px;
+        border-radius: 20px;
+        display: block;
+        margin: 20px auto;
+        padding: 1px 10px;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    }
+
+    .product-img {
+        height: 200px;
+        width: 260px;
+        background-image: linear-gradient(135deg, #E2B0FF 10%, #9463b0 100%);
+        display: block;
+        margin: 20px auto;
+        border-radius: 20px;
+    }
+
+    .product-title-conntainer {
+        margin-left: 10px;
+    }
+
+    .product-title {
+        font-size: 20px;
+    }
+
+    .product-discription {
+        font-size: 15px;
+    }
+
+    .product-price {
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .btn-quantity {
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .quantity-btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .quantity-text {
+        font-size: 25px;
+        margin: 10px;
+    }
+
+    .btn-buy-now {
+        background-image: linear-gradient(135deg, #E2B0FF 10%, #9463b0 100%);
+        color: rgb(255, 255, 255);
+        border-radius: 20px;
+        border: none;
+        padding: 10px 25px;
+        display: block;
+        margin: 10px auto;
+    }
+</style>
+
+<body>
+    <div class="product-container">
+        <img src="./bag-removebg-preview.png" class="product-img" />
+
+        <div class="product-title-conntainer">
+            <h1 class="product-title">Auxter Leather Gym Bag,</h1>
+            <p class="product-discription">
+                Auxter gym bag is the perfect companion for your daily
+                workout or as a second
+            </p>
+            <p id="price-text" class="product-price"> ₹ 599/-</p>
+            <div class="quantity-btn-container">
+                <img class="btn-quantity" src="./minus.png" onclick="dec() " />
+                <span id="quantity-text" class="quantity-text">1</span>
+                <img class="btn-quantity" src="./plus.png" onclick="inc() " />
+            </div>
+
+            <button class="btn-buy-now" type="button">Buy Now </button>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const quantityText = document.getElementById("quantity-text");
+        let quantity = parseInt(quantityText.innerText);
+
+        const price = document.getElementById("price-text");
+        let priceText = parseInt(price.innerText);
+
+        function inc() {
+            if (quantity < 10) {
+                quantityText.innerText = ++quantity;
+            }
+            else {
+                alert("You cannot add more than 10 items");
+            }
+            price.innerText ="₹ " + quantity * 599+"/-";
+
+        }
+
+        function dec() {
+            if (quantity > 1) {
+                quantityText.innerText = --quantity;
+            }
+            else {
+                alert("You have to buy atleast 1 items");
+            }
+            price.innerText ="₹ " + quantity * 599+"/-";
+        }
+    </script>
+</body>
+
+</html>
